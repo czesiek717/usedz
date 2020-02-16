@@ -16,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@usedz/usedz-common": ["libs/usedz-common/src/index.ts"]
+      "@usedz/usedz-common": ["libs/usedz-common/src/index.ts"],
+      "@usedz/antd-front": ["apps/antd-front/src/index.ts"],
+      "@usedz/express-back": ["apps/express-back/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
