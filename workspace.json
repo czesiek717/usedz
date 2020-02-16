@@ -1,8 +1,198 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "antd-front": {
+      "root": "apps/antd-front",
+      "sourceRoot": "apps/antd-front/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/antd-front",
+            "index": "apps/antd-front/src/index.html",
+            "main": "apps/antd-front/src/main.tsx",
+            "polyfills": "apps/antd-front/src/polyfills.ts",
+            "tsConfig": "apps/antd-front/tsconfig.app.json",
+            "assets": [
+              "apps/antd-front/src/favicon.ico",
+              "apps/antd-front/src/assets"
+            ],
+            "styles": ["apps/antd-front/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/antd-front/src/environments/environment.ts",
+                  "with": "apps/antd-front/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "antd-front:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "antd-front:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/antd-front/.eslintrc",
+            "tsConfig": [
+              "apps/antd-front/tsconfig.app.json",
+              "apps/antd-front/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/antd-front/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/antd-front/jest.config.js",
+            "tsConfig": "apps/antd-front/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "antd-front-e2e": {
+      "root": "apps/antd-front-e2e",
+      "sourceRoot": "apps/antd-front-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/antd-front-e2e/cypress.json",
+            "tsConfig": "apps/antd-front-e2e/tsconfig.e2e.json",
+            "devServerTarget": "antd-front:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "antd-front:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/antd-front-e2e/.eslintrc",
+            "tsConfig": ["apps/antd-front-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/antd-front-e2e/**"]
+          }
+        }
+      }
+    },
+    "express-back": {
+      "root": "apps/express-back",
+      "sourceRoot": "apps/express-back/src",
+      "projectType": "application",
+      "prefix": "express-back",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/express-back",
+            "main": "apps/express-back/src/main.ts",
+            "tsConfig": "apps/express-back/tsconfig.app.json",
+            "assets": ["apps/express-back/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/express-back/src/environments/environment.ts",
+                  "with": "apps/express-back/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "express-back:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/express-back/.eslintrc",
+            "tsConfig": [
+              "apps/express-back/tsconfig.app.json",
+              "apps/express-back/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/express-back/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/express-back/jest.config.js",
+            "tsConfig": "apps/express-back/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "usedz-common": {
+      "root": "libs/usedz-common",
+      "sourceRoot": "libs/usedz-common/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/usedz-common/tsconfig.lib.json",
+              "libs/usedz-common/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/usedz-common/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/usedz-common/jest.config.js",
+            "tsConfig": "libs/usedz-common/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/react"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -17,9 +207,15 @@
     },
     "@nrwl/react": {
       "application": {
-        "linter": "eslint"
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
       },
       "library": {
+        "style": "scss",
         "linter": "eslint"
       }
     },
@@ -56,5 +252,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "antd-front"
 }

@@ -10,5 +10,19 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "antd-front": {
+      "tags": []
+    },
+    "antd-front-e2e": {
+      "tags": [],
+      "implicitDependencies": ["antd-front"]
+    },
+    "express-back": {
+      "tags": []
+    },
+    "usedz-common": {
+      "tags": []
+    }
+  }
 }
