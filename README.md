@@ -9,7 +9,9 @@ The plan was to also create backends using Nest.js with TypeORM or Sequelize and
 ## Development server
 
 Run `nx serve app-name` for a dev server.
+
 Backend app (`express-back`) based on Express.js is hosted on port 8080 => http://localhost:8080
+
 Frontend app (`usedz-front`) based on React.js is hosted on port 4200 => http://localhost:4200
 
 ## Build
