@@ -1,6 +1,6 @@
-# Usedz
+# Usedz - WIP online marketplace
 
-This is a work in progress project created to learn Express.js, Mongoose and MongoDB, containing two apps and an library. There is simple backend called `express-back`, simple frontend app called `usedz-front` and an library `usedz-common` hosting common interfaces and logic.
+This is a work in progress project created to learn Express.js, Mongoose and MongoDB, containing two apps and an library.There is simple backend called `express-back`, simple frontend app called `usedz-front` and an library `usedz-common` hosting common interfaces and logic.
 `express-back` is a fully functional backend with exposed endpoints enabling all CRUD operations on Item type.
 `usedz-front` for now can only display all items contained in a database as a infinite scrollable list of item cards.
 
