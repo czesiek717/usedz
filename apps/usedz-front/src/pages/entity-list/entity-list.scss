@@ -1,4 +1,4 @@
-.entity-grid {
+.entity-list {
   width: 100%;
   flex-basis: 100%;
   padding: 1em;
@@ -15,25 +15,18 @@
       border-radius: 32px;
     }
   }
-
-  .entity-list {
-    flex-basis: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
 }
 
 // xs
 @media only screen and (max-width: 576px) {
-  .entity-grid .entity-search .search-input {
+  .entity-list .entity-search .search-input {
     flex-basis: 50%;
   }
 }
 
 // sm
 @media only screen and (min-width: 576px) and (max-width: 768px) {
-  .entity-grid .entity-search .search-input {
+  .entity-list .entity-search .search-input {
     flex-basis: 60%;
   }
 }

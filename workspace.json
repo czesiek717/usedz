@@ -1,25 +1,22 @@
 {
   "version": 1,
   "projects": {
-    "antd-front": {
-      "root": "apps/antd-front",
-      "sourceRoot": "apps/antd-front/src",
+    "usedz-front": {
+      "root": "apps/usedz-front",
+      "sourceRoot": "apps/usedz-front/src",
       "projectType": "application",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/web:build",
           "options": {
-            "outputPath": "dist/apps/antd-front",
-            "index": "apps/antd-front/src/index.html",
-            "main": "apps/antd-front/src/main.tsx",
-            "polyfills": "apps/antd-front/src/polyfills.ts",
-            "tsConfig": "apps/antd-front/tsconfig.app.json",
-            "assets": [
-              "apps/antd-front/src/favicon.ico",
-              "apps/antd-front/src/assets"
-            ],
-            "styles": ["apps/antd-front/src/styles.scss"],
+            "outputPath": "dist/apps/usedz-front",
+            "index": "apps/usedz-front/src/index.html",
+            "main": "apps/usedz-front/src/main.tsx",
+            "polyfills": "apps/usedz-front/src/polyfills.ts",
+            "tsConfig": "apps/usedz-front/tsconfig.app.json",
+            "assets": ["apps/usedz-front/src/favicon.ico", "apps/usedz-front/src/assets"],
+            "styles": ["apps/usedz-front/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -27,8 +24,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/antd-front/src/environments/environment.ts",
-                  "with": "apps/antd-front/src/environments/environment.prod.ts"
+                  "replace": "apps/usedz-front/src/environments/environment.ts",
+                  "with": "apps/usedz-front/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -51,11 +48,11 @@
         "serve": {
           "builder": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "antd-front:build"
+            "buildTarget": "usedz-front:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "antd-front:build:production"
+              "buildTarget": "usedz-front:build:production"
             }
           }
         },
@@ -63,38 +60,35 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "apps/antd-front/.eslintrc",
-            "tsConfig": [
-              "apps/antd-front/tsconfig.app.json",
-              "apps/antd-front/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/antd-front/**"]
+            "config": "apps/usedz-front/.eslintrc",
+            "tsConfig": ["apps/usedz-front/tsconfig.app.json", "apps/usedz-front/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!apps/usedz-front/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/antd-front/jest.config.js",
-            "tsConfig": "apps/antd-front/tsconfig.spec.json"
+            "jestConfig": "apps/usedz-front/jest.config.js",
+            "tsConfig": "apps/usedz-front/tsconfig.spec.json"
           }
         }
       }
     },
-    "antd-front-e2e": {
-      "root": "apps/antd-front-e2e",
-      "sourceRoot": "apps/antd-front-e2e/src",
+    "usedz-front-e2e": {
+      "root": "apps/usedz-front-e2e",
+      "sourceRoot": "apps/usedz-front-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/antd-front-e2e/cypress.json",
-            "tsConfig": "apps/antd-front-e2e/tsconfig.e2e.json",
-            "devServerTarget": "antd-front:serve"
+            "cypressConfig": "apps/usedz-front-e2e/cypress.json",
+            "tsConfig": "apps/usedz-front-e2e/tsconfig.e2e.json",
+            "devServerTarget": "usedz-front:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "antd-front:serve:production"
+              "devServerTarget": "usedz-front:serve:production"
             }
           }
         },
@@ -102,9 +96,9 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "apps/antd-front-e2e/.eslintrc",
-            "tsConfig": ["apps/antd-front-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/antd-front-e2e/**"]
+            "config": "apps/usedz-front-e2e/.eslintrc",
+            "tsConfig": ["apps/usedz-front-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/usedz-front-e2e/**"]
           }
         }
       }
@@ -149,10 +143,7 @@
           "options": {
             "linter": "eslint",
             "config": "apps/express-back/.eslintrc",
-            "tsConfig": [
-              "apps/express-back/tsconfig.app.json",
-              "apps/express-back/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/express-back/tsconfig.app.json", "apps/express-back/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/express-back/**"]
           }
         },
@@ -174,10 +165,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/usedz-common/tsconfig.lib.json",
-              "libs/usedz-common/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/usedz-common/tsconfig.lib.json", "libs/usedz-common/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/usedz-common/**"]
           }
         },
@@ -253,5 +241,5 @@
       }
     }
   },
-  "defaultProject": "antd-front"
+  "defaultProject": "usedz-front"
 }

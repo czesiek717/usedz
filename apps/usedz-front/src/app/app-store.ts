@@ -1,4 +1,4 @@
-import { Entities, ItemDef, PageData, PageRequest } from '@usedz/usedz-common';
+import { Entities, ItemDef, PageRequest, PageData } from '@usedz/usedz-common';
 import create from 'zustand';
 import { getPageOfEntities } from '../api/api';
 
@@ -9,11 +9,13 @@ export interface State {
 }
 
 export const [useStore] = create<State>((set, get) => ({
-  items: { data: [], totalCount: 0 },
+  items: { data: [], hasMore: true },
   fetchItems: async (pageRequest: PageRequest) => {
-    const items = await getPageOfEntities<ItemDef>(Entities.ITEM.pluralName, pageRequest);
-    set({ items });
-    return items;
+    const { data: items, hasMore } = await getPageOfEntities<ItemDef>(Entities.ITEM.pluralName, pageRequest);
+    const { data: oldItems } = get().items;
+    const mergedItems = { data: [...oldItems, ...items], hasMore };
+    set({ items: mergedItems });
+    return mergedItems;
   },
   fetchData: async <T>(entityName: string, pageRequest: PageRequest) => {
     return await getPageOfEntities<T>(entityName, pageRequest);

@@ -6,10 +6,6 @@
   width: 100%;
 }
 
-.container-buffer {
-  flex-basis: 25%;
-}
-
 .container-main {
   background-color: $background-color;
   min-height: inherit;
@@ -25,6 +21,10 @@
 
 // xs
 @media only screen and (max-width: 576px) {
+  .container-buffer {
+    flex-basis: 2.5%;
+  }
+
   .container-main {
     flex-basis: 95%;
   }
@@ -32,6 +32,10 @@
 
 // sm
 @media only screen and (min-width: 576px) and (max-width: 768px) {
+  .container-buffer {
+    flex-basis: 5%;
+  }
+
   .container-main {
     flex-basis: 90%;
   }
@@ -39,6 +43,10 @@
 
 // md
 @media only screen and (min-width: 768px) and (max-width: 992px) {
+  .container-buffer {
+    flex-basis: 7.5%;
+  }
+
   .container-main {
     flex-basis: 85%;
   }
@@ -46,6 +54,10 @@
 
 // lg
 @media only screen and (min-width: 992px) {
+  .container-buffer {
+    flex-basis: 12.5%;
+  }
+
   .container-main {
     flex-basis: 75%;
   }

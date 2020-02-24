@@ -11,12 +11,12 @@
     "nx.json": "*"
   },
   "projects": {
-    "antd-front": {
+    "usedz-front": {
       "tags": []
     },
-    "antd-front-e2e": {
+    "usedz-front-e2e": {
       "tags": [],
-      "implicitDependencies": ["antd-front"]
+      "implicitDependencies": ["usedz-front"]
     },
     "express-back": {
       "tags": []

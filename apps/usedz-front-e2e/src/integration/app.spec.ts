@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('antd-front', () => {
+describe('usedz-front', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('antd-front', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to antd-front!');
+    getGreeting().contains('Welcome to usedz-front!');
   });
 });

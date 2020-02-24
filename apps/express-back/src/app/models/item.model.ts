@@ -7,7 +7,7 @@ export interface Item extends ItemDef, Document {
 
 const ItemSchema = new Schema<Item>(
   {
-    name: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
     description: { type: String, required: true },
     image: { type: String, required: true },
     category: {

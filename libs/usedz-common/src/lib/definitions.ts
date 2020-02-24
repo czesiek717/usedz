@@ -5,7 +5,7 @@ export interface PageRequest {
 
 export interface PageData<T> {
   data: T[];
-  totalCount: number;
+  hasMore: boolean;
 }
 
 export class EntityProperties {
