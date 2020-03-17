@@ -1,15 +1,9 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { ItemDef } from '@usedz/usedz-common';
 import { Card } from 'antd';
 import React from 'react';
 
-interface Props {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-}
-
-export const EntityCard: React.FunctionComponent<Props> = (props: Props) => {
+export const ItemCard: React.FunctionComponent<ItemDef> = (props: ItemDef) => {
   const { Meta } = Card;
   return (
     <div>

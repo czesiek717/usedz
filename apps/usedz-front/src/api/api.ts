@@ -1,4 +1,4 @@
-import { PageRequest, PageData } from '@usedz/usedz-common';
+import { PageRequest, PageData, itemPluralName, ItemDef } from '@usedz/usedz-common';
 import { API_BASE_URL } from '../utils/consts';
 
 const request = async (url: string, options: RequestInit) => {
@@ -30,5 +30,12 @@ export const getPageOfEntities = async <T>(
   return await request(API_BASE_URL + `/usedz/${entityPluralName}/find`, {
     method: 'POST',
     body: JSON.stringify(pageRequest)
+  });
+};
+
+export const createItem = async (item: ItemDef): Promise<ItemDef> => {
+  return await request(API_BASE_URL + `/usedz/${itemPluralName}/`, {
+    method: 'POST',
+    body: JSON.stringify(item)
   });
 };

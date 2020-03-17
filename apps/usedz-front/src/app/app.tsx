@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { IndexPage } from '../pages/index-page/index-page';
-import { MainRouter } from '../pages/main-router';
+import { ItemRouter } from '../routes/item-router';
+import { MainRouter } from '../routes/main-router';
 import './app.scss';
 
 export const App: React.FunctionComponent = () => {
@@ -10,11 +10,11 @@ export const App: React.FunctionComponent = () => {
       <div className="container-buffer" />
       <div className="container-main">
         <Switch>
-          <Route path="/usedz">
+          <Route path="/" exact>
             <MainRouter />
           </Route>
-          <Route path="/">
-            <IndexPage />
+          <Route path="/items">
+            <ItemRouter />
           </Route>
         </Switch>
       </div>

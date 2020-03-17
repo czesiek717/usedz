@@ -8,20 +8,18 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as express from 'express';
 import { connect } from 'mongoose';
+import { itemPluralName } from '@usedz/usedz-common';
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-app.use('/api/usedz/items', ItemRouter);
+app.use(`/api/usedz/${itemPluralName}`, ItemRouter);
 
-connect(
-  'mongodb://localhost:27017/usedz',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }
-)
+connect('mongodb://localhost:27017/usedz', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
   .then(() => console.log('Successfully connected to database'))
   .catch(error => console.error(error));
 

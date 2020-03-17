@@ -1,20 +1,17 @@
-import { Entities, EntityProperties } from '@usedz/usedz-common';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useStore } from '../../app/app-store';
+import { ItemList } from '../item-list/item-list';
 import './index-page.scss';
 
 // export interface Props {}
 
 export const IndexPage: React.FunctionComponent /* <Props> */ = (/* props: Props */) => {
+  const fetchItems = useStore(state => state.fetchItems);
+  const items = useStore(state => state.items);
+
   return (
-    <div>
-      {Object.values(Entities).map((entity: EntityProperties) => (
-        <Link to={`/usedz/${entity.pluralName}`} key={entity.name}>
-          <div className="entity-item">
-            <span>{entity.capitalizedPluralName}</span>
-          </div>
-        </Link>
-      ))}
+    <div className="index-page">
+      <ItemList pageData={items} fetchData={fetchItems} />
     </div>
   );
 };

@@ -3,15 +3,15 @@ import { ItemDef, PageData, PageRequest } from '@usedz/usedz-common';
 import { List, Spin } from 'antd';
 import React, { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import { EntityCard } from '../entity-card/entity-card';
-import './entity-grid.scss';
+import { ItemCard } from '../item-card/item-card';
+import './item-grid.scss';
 
-interface Props<T> {
-  pageData: PageData<T>;
-  fetchData: (pageRequest: PageRequest) => Promise<PageData<T>>;
+interface Props {
+  pageData: PageData<ItemDef>;
+  fetchData: (pageRequest: PageRequest) => Promise<PageData<ItemDef>>;
 }
 
-export const EntityGrid = <T extends ItemDef>(props: Props<T>) => {
+export const ItemGrid = (props: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(true);
 
@@ -27,10 +27,10 @@ export const EntityGrid = <T extends ItemDef>(props: Props<T>) => {
   };
 
   return (
-    <div className="entity-grid">
+    <div className="item-grid">
       <InfiniteScroll initialLoad={true} pageStart={0} loadMore={handleInfiniteOnLoad} hasMore={!loading && hasMore}>
         <List
-          className={'entity-list'}
+          className={'item-list'}
           loadMore={
             loading ? (
               <Spin key="spinner" tip="loading..." indicator={<LoadingOutlined style={{ fontSize: '4em' }} spin />} />
@@ -45,9 +45,9 @@ export const EntityGrid = <T extends ItemDef>(props: Props<T>) => {
             xl: 6
           }}
           dataSource={props.pageData.data}
-          renderItem={entity => (
+          renderItem={item => (
             <List.Item>
-              <EntityCard id={entity._id} name={entity.name} description={entity.description} image={entity.image} />
+              <ItemCard {...item} />
             </List.Item>
           )}
         />

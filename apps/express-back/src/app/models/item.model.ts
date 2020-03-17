@@ -1,4 +1,4 @@
-import { Entities, ItemDef, Category } from '@usedz/usedz-common';
+import { ItemDef, Category, itemPluralName } from '@usedz/usedz-common';
 import { Document, model, Schema } from 'mongoose';
 
 export interface Item extends ItemDef, Document {
@@ -15,11 +15,15 @@ const ItemSchema = new Schema<Item>(
       enum: Object.keys(Category),
       required: true,
       get: (value: keyof typeof Category) => Category[value] /* , set: (value: AttackType) =>  */
-    }
+    },
+    owner: { type: String, required: true },
+    price: { type: Number, required: true },
+    negotiable: { type: Boolean, required: false },
+    localization: { type: String, required: true }
   },
   {
     timestamps: true
   }
 );
 
-export const ItemModel = model<Item>(Entities.ITEM.capitalizedName, ItemSchema);
+export const ItemModel = model<Item>(itemPluralName, ItemSchema);
