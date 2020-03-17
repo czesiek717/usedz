@@ -15,8 +15,13 @@
             "main": "apps/usedz-front/src/main.tsx",
             "polyfills": "apps/usedz-front/src/polyfills.ts",
             "tsConfig": "apps/usedz-front/tsconfig.app.json",
-            "assets": ["apps/usedz-front/src/favicon.ico", "apps/usedz-front/src/assets"],
-            "styles": ["apps/usedz-front/src/styles.scss"],
+            "assets": [
+              "apps/usedz-front/src/favicon.ico",
+              "apps/usedz-front/src/assets"
+            ],
+            "styles": [
+              "apps/usedz-front/src/styles.scss"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -61,15 +66,22 @@
           "options": {
             "linter": "eslint",
             "config": "apps/usedz-front/.eslintrc",
-            "tsConfig": ["apps/usedz-front/tsconfig.app.json", "apps/usedz-front/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/usedz-front/**"]
+            "tsConfig": [
+              "apps/usedz-front/tsconfig.app.json",
+              "apps/usedz-front/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/usedz-front/**"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/usedz-front/jest.config.js",
-            "tsConfig": "apps/usedz-front/tsconfig.spec.json"
+            "tsConfig": "apps/usedz-front/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -97,8 +109,13 @@
           "options": {
             "linter": "eslint",
             "config": "apps/usedz-front-e2e/.eslintrc",
-            "tsConfig": ["apps/usedz-front-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/usedz-front-e2e/**"]
+            "tsConfig": [
+              "apps/usedz-front-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/usedz-front-e2e/**"
+            ]
           }
         }
       }
@@ -116,7 +133,9 @@
             "outputPath": "dist/apps/express-back",
             "main": "apps/express-back/src/main.ts",
             "tsConfig": "apps/express-back/tsconfig.app.json",
-            "assets": ["apps/express-back/src/assets"]
+            "assets": [
+              "apps/express-back/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -143,15 +162,22 @@
           "options": {
             "linter": "eslint",
             "config": "apps/express-back/.eslintrc",
-            "tsConfig": ["apps/express-back/tsconfig.app.json", "apps/express-back/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/express-back/**"]
+            "tsConfig": [
+              "apps/express-back/tsconfig.app.json",
+              "apps/express-back/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/express-back/**"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/express-back/jest.config.js",
-            "tsConfig": "apps/express-back/tsconfig.spec.json"
+            "tsConfig": "apps/express-back/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -165,15 +191,22 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/usedz-common/tsconfig.lib.json", "libs/usedz-common/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/usedz-common/**"]
+            "tsConfig": [
+              "libs/usedz-common/tsconfig.lib.json",
+              "libs/usedz-common/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/usedz-common/**"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/usedz-common/jest.config.js",
-            "tsConfig": "libs/usedz-common/tsconfig.spec.json"
+            "tsConfig": "libs/usedz-common/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
